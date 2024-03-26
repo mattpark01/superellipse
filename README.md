@@ -66,4 +66,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 - [Figma's Squircle Article](https://www.figma.com/blog/desperately-seeking-squircles/)
 - Apple's Patent on Superellipses
-```
