@@ -1,20 +1,11 @@
-import {
-	useState,
-	useEffect,
-	forwardRef,
-	ElementType,
-	HTMLAttributes,
-	ReactNode,
-	Ref,
-	CSSProperties,
-} from "react";
+import * as React from 'react';
 import { MotionProps, motion } from "framer-motion";
 import { useElementSize } from "../hooks/useElementResize";
 import { Slot } from "@radix-ui/react-slot";
-import { getSvgPath } from "../utils/index";
+import { getSvgPath } from "../utils/getSVGPath";
 import { cn } from "../utils/cn";
 
-interface SuperellipseProps<E extends ElementType = "div"> extends MotionProps {
+interface SuperellipseProps<E extends React.ElementType = "div"> extends MotionProps {
 	key?: string;
 	cornerSmoothing?: number;
 	cornerRadius?: number;
@@ -27,8 +18,8 @@ interface SuperellipseProps<E extends ElementType = "div"> extends MotionProps {
 	rightCornerRadius?: number;
 	bottomCornerRadius?: number;
 	asChild?: boolean;
-	style?: CSSProperties;
-	children?: ReactNode;
+	style?: React.CSSProperties;
+	children?: React.ReactNode;
 	width?: number;
 	height?: number;
 	defaultWidth?: number;
@@ -39,11 +30,10 @@ interface SuperellipseProps<E extends ElementType = "div"> extends MotionProps {
 	onMouseEnter?: () => void;
 	onMouseLeave?: () => void;
 	onMouseDown?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-	onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
-const Superellipse = forwardRef(
-	<E extends ElementType = "div">(
+const Superellipse = React.forwardRef(
+	<E extends React.ElementType = "div">(
 		{
 			children,
 			cornerRadius = 8,
@@ -67,22 +57,21 @@ const Superellipse = forwardRef(
 			onMouseEnter,
 			onMouseLeave,
 			onMouseDown,
-			onDragStart,
-			as: E = "div", // Default to 'div' if not specified
+			as: E = "div",
 			...props
 		}: SuperellipseProps<E>,
-		ref: Ref<any>,
+		ref: React.Ref<any>,
 	) => {
 		const Comp = asChild ? Slot : motion.div;
 
-		const [initialized, setInitialized] = useState(false);
+		const [initialized, setInitialized] = React.useState(false);
 
 		const [elementRef, { width, height }] = useElementSize<HTMLDivElement>({
 			defaultWidth,
 			defaultHeight,
 		});
 
-		useEffect(() => {
+		React.useEffect(() => {
 			if (width && height) setInitialized(true);
 		}, [width, height]);
 
@@ -143,7 +132,6 @@ const Superellipse = forwardRef(
 				data-squircle={cornerRadius}
 				className={cn(className)}
 				onClick={onClick}
-				onDragStart={onDragStart}
 			>
 				{children}
 			</Comp>

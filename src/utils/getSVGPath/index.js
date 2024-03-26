@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getSvgPath = void 0;
-const distribute_1 = require("./distribute");
-const draw_1 = require("./draw");
+const distribute_1 = require("../distribute");
+const draw_1 = require("../draw");
 function getSvgPath({ cornerRadius = 0, topLeftCornerRadius = 0, topRightCornerRadius = 0, bottomRightCornerRadius = 0, bottomLeftCornerRadius = 0, cornerSmoothing, width, height, preserveSmoothing = false, }) {
     topLeftCornerRadius = topLeftCornerRadius !== null && topLeftCornerRadius !== void 0 ? topLeftCornerRadius : cornerRadius;
     topRightCornerRadius = topRightCornerRadius !== null && topRightCornerRadius !== void 0 ? topRightCornerRadius : cornerRadius;

@@ -1,5 +1,5 @@
-import { distributeAndNormalize } from "./distribute";
-import { getPathParamsForCorner, getSVGPathFromPathParams } from "./draw";
+import { distributeAndNormalize } from "../distribute";
+import { getPathParamsForCorner, getSVGPathFromPathParams } from "../draw";
 
 export interface SuperellipseParams {
 	cornerRadius?: number;
