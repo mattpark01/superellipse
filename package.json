@@ -1,0 +1,24 @@
+{
+  "name": "superellipse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.2.70",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.20",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.2"
+  }
+}
